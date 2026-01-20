@@ -1,6 +1,6 @@
 ## Testitulokset:
 
-![](https://github.com/finalisti/express-ts/blob/main/test.results.png?raw=true)
+![](https://github.com/finalisti/express-ts/blob/main/test-results.png?raw=true)
 
 # Express TypeScript SQLite
 
