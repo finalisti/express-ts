@@ -1,20 +1,35 @@
 import Database from 'better-sqlite3';
-import {filename, tables} from './db-config';
+import {
+  filename,
+  tables,
+  checkData,
+  checkData2,
+  exampleData,
+  exampleData2,
+} from './db-config';
 
 const db = new Database(filename);
 db.pragma('journal_mode = WAL');
 
 // init tables, use exec only for CREATE TABLE
 db.exec(tables);
+const rowCount2 = (db.prepare(checkData2).get() as {count: number}).count;
+
+if (rowCount2 === 0) {
+  db.prepare(exampleData2).run();
+  console.log('Inserted example data 2.');
+} else {
+  console.log('Table already populated 2');
+}
 
 // Check if the articles table is empty
-// const rowCount = (db.prepare(checkData).get() as {count: number}).count;
+const rowCount = (db.prepare(checkData).get() as {count: number}).count;
 // If the table is empty, insert example data
-// if (rowCount === 0) {
-//   db.prepare(exampleData).run();
-//   console.log('Inserted example data.');
-// } else {
-//   console.log('Table already populated.');
-// }
+if (rowCount === 0) {
+  db.prepare(exampleData).run();
+  console.log('Inserted example data.');
+} else {
+  console.log('Table already populated.');
+}
 
 export default db;

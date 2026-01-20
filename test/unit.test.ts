@@ -107,9 +107,9 @@ describe('Article functions', () => {
   it('updateArticle should return the updated article', () => {
     const updatedArticle = updateArticle(
       article.id,
+      author.id,
       'Updated Title',
       'Updated Description',
-      author.id,
     );
     expect(updatedArticle.title).toBe('Updated Title');
     expect(updatedArticle.description).toBe('Updated Description');
