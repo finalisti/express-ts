@@ -1,3 +1,7 @@
+## Testitulokset:
+
+![](https://github.com/finalisti/express-ts-sqlite/blob/main/test.results.png?raw=true)
+
 # Express TypeScript SQLite
 
 An Express.js application template written in TypeScript using SQLite for database management.
